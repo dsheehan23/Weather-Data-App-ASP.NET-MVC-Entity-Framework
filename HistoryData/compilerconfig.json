@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "Content/DanWeather.css",
+    "inputFile": "Content/DanWeather.less"
+  },
+  {
+    "outputFile": "Content/Site.css",
+    "inputFile": "Content/Site.less"
+  }
+]

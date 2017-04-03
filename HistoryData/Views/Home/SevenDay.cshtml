@@ -1,0 +1,200 @@
+﻿
+@{
+    ViewBag.Title = "Seven Day Forecast";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>7-Day Forecast For Chicago</h2>
+
+<p class="alert alert-info">
+    Temperatures are in the form of High/Low.<br /> The Low temperature is for the upcoming night of
+    each day (eg Monday's Low is for Monday night).
+</p>
+
+<ul class="SevenDay">
+    <li>
+        <div class="date">
+            <div class="month">
+                @DateTime.Now.ToString("MMMM")
+            </div>
+            <div class="day">
+                @DateTime.Now.ToString("d ")
+            </div>
+        </div>
+        <div class="details">
+            <span class="textday">
+                @DateTime.Now.DayOfWeek.ToString()
+            </span>
+            <span class="temp">
+                60/46
+            </span>
+            <img src="@Url.Content("~/Content/Photos/MostCloud.png")" width="70" height="60" alt="" class="icon" />
+        </div>
+        <div class="foretext">
+            Mostly Cloudy, warm and breezy with highs near 60.
+        </div>
+    </li>
+    <li>
+        <div class="date">
+            <div class="month">
+                @DateTime.Now.Date.AddDays(1).ToString("MMMM")
+            </div>
+            <div class="day">
+                @DateTime.Now.AddDays(1).ToString("d ")
+            </div>
+        </div>
+        <div class="details">
+            <span class="textday">
+                @DateTime.Now.AddDays(1).DayOfWeek.ToString()
+            </span>
+            <span class="temp">
+                50/32
+            </span>
+            <img src="@Url.Content("~/Content/Photos/Rain.png")" width="70" height="60" alt="" class="icon" />
+        </div>
+        <div class="foretext">
+            Rain. Highs near 50, falling towards 35 by evening. Southerly winds 20-30mph shifting northeast.
+            Rain changes to snow overnight.
+        </div>
+    </li>
+    <li>
+        <div class="date">
+            <div class="month">
+                @DateTime.Now.Date.AddDays(2).ToString("MMMM")
+            </div>
+            <div class="day">
+                @DateTime.Now.AddDays(2).ToString("d ")
+            </div>
+        </div>
+        <div class="details">
+            <span class="textday">
+                @DateTime.Now.AddDays(2).DayOfWeek.ToString()
+            </span>
+            <span class="temp">
+                31/12
+            </span>
+            <img src="@Url.Content("~/Content/Photos/Snowy.png")" width="70" height="60" alt="" class="icon" />
+        </div>
+        <div class="foretext">
+            Snow in the morning tapering off by afternoon. Snow accumulations of 2-5 inches. Mostly Cloudy
+            with northwest winds of 20-30mph.
+        </div>
+    </li>
+    <li>
+        <div class="date">
+            <div class="month">
+                @DateTime.Now.Date.AddDays(3).ToString("MMMM")
+            </div>
+            <div class="day">
+                @DateTime.Now.AddDays(3).ToString("d ")
+            </div>
+        </div>
+        <div class="details">
+            <span class="textday">
+                @DateTime.Now.AddDays(3).DayOfWeek.ToString()
+            </span>
+            <span class="temp">
+                22/10
+            </span>
+            <img src="@Url.Content("~/Content/Photos/SctSnowShow.png")" width="70" height="60" alt="" class="icon" />
+        </div>
+        <div class="foretext">
+            Mostly Sunny and very cold. Scattered snow showers off the lake. No accumulation expected. Winds near calm.
+        </div>
+    </li>
+    <li>
+        <div class="date">
+            <div class="month">
+                @DateTime.Now.Date.AddDays(4).ToString("MMMM")
+            </div>
+            <div class="day">
+                @DateTime.Now.AddDays(4).ToString("d ")
+            </div>
+        </div>
+        <div class="details">
+            <span class="textday">
+                @DateTime.Now.AddDays(4).DayOfWeek.ToString()
+            </span>
+            <span class="temp">
+                31/29
+            </span>
+            <img src="@Url.Content("~/Content/Photos/Sunny.png")" width="70" height="60" alt="" class="icon" />
+        </div>
+        <div class="foretext">
+            Sunny, winds southwest 5-10mph. Temperatures begin to moderate.
+        </div>
+    </li>
+    <li>
+        <div class="date">
+            <div class="month">
+                @DateTime.Now.Date.AddDays(5).ToString("MMMM")
+            </div>
+            <div class="day">
+                @DateTime.Now.AddDays(5).ToString("d ")
+            </div>
+        </div>
+        <div class="details">
+            <span class="textday">
+                @DateTime.Now.AddDays(5).DayOfWeek.ToString()
+            </span>
+            <span class="temp">
+                44/36
+            </span>
+            <img src="@Url.Content("~/Content/Photos/MostCloud.png")" width="70" height="60" alt="" class="icon" />
+        </div>
+        <div class="foretext">
+            Increasing clouds. Winds southwest at 10-20mph.
+        </div>
+    </li>
+    <li>
+        <div class="date">
+            <div class="month">
+                @DateTime.Now.Date.AddDays(6).ToString("MMMM")
+            </div>
+            <div class="day">
+                @DateTime.Now.AddDays(6).ToString("d ")
+            </div>
+        </div>
+        <div class="details">
+            <span class="textday">
+                @DateTime.Now.AddDays(6).DayOfWeek.ToString()
+            </span>
+            <span class="temp">
+                50/37
+            </span>
+            <img src="@Url.Content("~/Content/Photos/Showers.png")" width="70" height="60" alt="" class="icon" />
+        </div>
+        <div class="foretext">
+            Cloudy with showers likely by afternoon. Light southerly winds at 5-10mph.
+        </div>
+    </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@section scripts
+    {
+        <script>
+            $(document).ready(function () {
+                $("#week").tabs({
+                    event: "click",
+                    show: "fadeIn",
+                    hide: "fadeOut",
+                    active: 0,
+                    collapsible: true,
+                    heightStyle: "auto"
+                });
+            });
+
+        </script>
+    }*@

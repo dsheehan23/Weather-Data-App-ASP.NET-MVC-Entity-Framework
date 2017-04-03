@@ -1,0 +1,44 @@
+﻿@model IEnumerable<HistoryData.Models.History>
+@{
+    ViewBag.Title = "Records";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Records</h2>
+
+<button class="btn btn-primary" onclick="location.href='@Url.Action("Create", "History")'">New Record</button>
+<br /><br />
+
+
+<table id="records" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Day</th>
+            <th>Max Temperature</th>
+            <th>Min Temperature</th>
+            <th>Mean Temperature</th>
+            <th>Precipitation</th>
+            <th>Daily Snowfall</th>
+            <th>Snowdepth</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            RecordsController.init("#records");
+
+            $("#records").on("click", ".js-edit", function () {
+                button = $(this);
+                window.location.href = '@Url.Action("Edit", "History")?id=' + button.attr("data-history-id");
+            });
+      });
+  </script>
+}

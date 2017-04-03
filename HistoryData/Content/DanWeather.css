@@ -1,0 +1,151 @@
+﻿#noalert {
+  text-align: center;
+  background-color: Highlight;
+  font-weight: bold;
+}
+#alert {
+  text-align: center;
+  background-color: Highlight;
+  color: red;
+  font-size: large;
+  font-weight: bold;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+}
+#picture {
+  float: right;
+  margin-top: 20px;
+  border-bottom: none;
+  position: relative;
+}
+#picture:hover > span {
+  margin-left: 0;
+}
+#picture > span {
+  margin-left: -10000px;
+  text-align: center;
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  background-color: #000;
+  opacity: 0.60;
+  color: #fff;
+}
+#picture > img {
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+}
+#HomeContent {
+  height: 400px;
+  margin-top: 20px;
+}
+#HomeContent > h4 {
+  color: black;
+  font-weight: 700;
+}
+#warm {
+  color: red;
+  font-weight: bold;
+}
+#cold {
+  color: blue;
+  font-weight: bold;
+}
+#wet {
+  color: green;
+  font-weight: bold;
+}
+#dry {
+  color: sienna;
+  font-weight: bold;
+}
+#snowy {
+  color: aqua;
+  font-weight: bold;
+}
+#notsnowy {
+  color: tan;
+  font-weight: bold;
+}
+#SevDayMenu {
+  background-color: deepskyblue;
+}
+ul.SevenDay {
+  list-style: none;
+}
+ul.SevenDay > li:first-child {
+  border-top: none;
+}
+ul.SevenDay > li {
+  width: 900px;
+  margin-bottom: 75px;
+  position: relative;
+  border-top: 1px solid #c2bbbb;
+  padding-top: 6px;
+}
+ul.SevenDay > li .date {
+  background: red;
+  color: white;
+  text-align: center;
+  width: 60px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+}
+ul.SevenDay > li .date .month {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2px 6px;
+}
+ul.SevenDay > li .date .day {
+  background: #f7f7f7;
+  color: #333;
+  font-size: 20px;
+  padding: 6px 12px;
+}
+ul.SevenDay > li .details {
+  position: absolute;
+  top: 0;
+  left: 70px;
+}
+ul.SevenDay > li .details .textday {
+  display: block;
+  font-weight: 700;
+  font-size: 18px;
+}
+ul.SevenDay > li .details .temp {
+  font-size: 22px;
+}
+ul.SevenDay > li .details .icon {
+  margin-left: 15px;
+}
+ul.SevenDay > li .foretext {
+  position: absolute;
+  left: 100px;
+  padding-bottom: 5px;
+  padding-top: 20px;
+}
+.about {
+  position: relative;
+}
+.about .about2 {
+  width: 500px;
+  display: inline-block;
+}
+.about .about3 {
+  width: 300px;
+  position: absolute;
+  top: 0;
+  left: 700px;
+  display: inline-block;
+}
+.about .about3 > ul {
+  list-style: none;
+  margin-top: 0;
+}
+.about .about4 {
+  width: 300px;
+  position: absolute;
+  top: 224px;
+  left: 700px;
+}

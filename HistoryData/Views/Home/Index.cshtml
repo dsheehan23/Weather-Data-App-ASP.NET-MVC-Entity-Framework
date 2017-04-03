@@ -1,0 +1,30 @@
+﻿@model IEnumerable<HistoryData.Models.History>
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Home for Dan's Weather Page</h2>
+
+<p id="alert">*** Winter Storm Watch 7pm Wed - 4am Fri ***</p>
+
+<div id="picture">
+    <img src="@Url.Content("~/Content/Photos/Snow.JPG")" width="400" height="400" alt="December Snowfall 2016" />
+    <span>December 6th, 2016 Snowfall in Naperville, IL</span>
+</div>
+
+<div id="HomeContent">
+    <h4>Historical Records for Major Holidays</h4><br />
+    @Html.ActionLink("Christmas Eve", "ChristmasEve", "History")<br /><br /><br />
+
+    @Html.ActionLink("Christmas Day", "ChristmasDay", "History")<br /><br /><br />
+
+    @Html.ActionLink("New Years Eve", "NewYearsEve", "History")<br /><br /><br />
+
+    @Html.ActionLink("New Years Day", "NewYearsDay", "History")<br /><br /><br />
+
+    <h4>January Weather</h4>
+    Temperature Average: <span id="warm">+4</span> degrees &ensp; Precipitation: <span id="wet">1.45</span> inches &ensp; Snow: <span id="notsnowy">1.2</span> inches<br />
+    Highest Temperature: <span id="warm">50</span> degrees &ensp; Lowest Temperature: <span id="cold">0</span> degrees
+
+</div>

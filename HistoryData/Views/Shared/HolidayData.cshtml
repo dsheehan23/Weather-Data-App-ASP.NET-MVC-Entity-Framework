@@ -1,0 +1,43 @@
+﻿@model HistoryData.ViewModels.RecordsViewModel
+@{ 
+    ViewBag.Title = Model.Heading;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Heading</h2>
+
+<table id="holiday" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Day</th>
+            <th>Max Temperature</th>
+            <th>Min Temperature</th>
+            <th>Mean Temperature</th>
+            <th>Precipitation</th>
+            <th>Daily Snowfall</th>
+            <th>Snowdepth</th>
+        </tr>
+    </thead>
+    @foreach (var date in Model.Records)
+    {
+        <tr>
+            <td>@date.DAY.ToString("MM-dd-yyyy")</td>
+            <td>@date.TMAX</td>
+            <td>@date.TMIN</td>
+            <td>@date.TMEAN</td>
+            <td>@date.PRECIP</td>
+            <td>@date.SNOW</td>
+            <td>@date.SNOWDEPTH</td>
+        </tr>
+    }
+    <tbody>
+    </tbody>
+</table>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#holiday").DataTable();
+        });
+    </script>
+}

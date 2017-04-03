@@ -1,0 +1,69 @@
+﻿@model HistoryData.ViewModels.NewRecordViewModel
+@{
+    ViewBag.Title = "New Record";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Heading</h2>
+
+@using (Html.BeginForm(Model.Action, "History"))
+{
+    <p class="alert alert-info">All fields are <strong>required</strong>.</p>
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(m => m.DAY)
+        @Html.TextBoxFor(m => m.DAY, new { @class = "form-control", id = "date" })
+        @Html.ValidationMessageFor(m => m.DAY)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.PRECIP)
+        @Html.TextBoxFor(m => m.PRECIP, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.PRECIP)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.SNOW)
+        @Html.TextBoxFor(m => m.SNOW, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.SNOW)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.SNOWDEPTH)
+        @Html.TextBoxFor(m => m.SNOWDEPTH, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.SNOWDEPTH)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.TMAX)
+        @Html.TextBoxFor(m => m.TMAX, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.TMAX)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.TMIN)
+        @Html.TextBoxFor(m => m.TMIN, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.TMIN)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.TMEAN)
+        @Html.TextBoxFor(m => m.TMEAN, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.TMEAN)
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg">Save</button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+                $("#date").datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    dateFormat: "mm/dd/yy",
+                    numberOfMonths: 1,
+                    maxDate: 365,
+                    minDate: -3650
+                });
+        });
+        
+    </script>
+}

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<HistoryData.Models.History>
+@{
+    ViewBag.Title = "Records";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Records</h2>
+
+<table id="records" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Day</th>
+            <th>Max Temperature</th>
+            <th>Min Temperature</th>
+            <th>Mean Temperature</th>
+            <th>Precipitation</th>
+            <th>Daily Snowfall</th>
+            <th>Snowdepth</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            RecordsController.initReadOnly("#records");
+        });
+    </script>
+}
