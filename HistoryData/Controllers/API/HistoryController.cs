@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using HistoryData.Dtos;
-using HistoryData.Models;
-using HistoryData.Persistence;
+using HistoryData.Core;
+using HistoryData.Core.Dtos;
+using HistoryData.Core.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -11,13 +11,11 @@ namespace HistoryData.Controllers.API
 {
     public class HistoryController : ApiController
     {
-        private readonly WeatherDbContext _context;
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public HistoryController()
+        public HistoryController(IUnitOfWork unitOfWork)
         {
-            _context = new WeatherDbContext();
-            _unitOfWork = new UnitOfWork(_context);
+            _unitOfWork = unitOfWork;
         }
 
         // GET /api/history

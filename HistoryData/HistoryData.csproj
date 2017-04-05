@@ -81,6 +81,26 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Conventions, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Extensions.Conventions.3.2.0.0\lib\net45-full\Ninject.Extensions.Conventions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.WebApi, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.WebApi.3.2.1.0\lib\net45-full\Ninject.Web.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -148,6 +168,10 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -212,48 +236,65 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\MappingProfile.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\API\HistoryController.cs" />
     <Compile Include="Controllers\HistoryController.cs" />
+    <Compile Include="Core\Models\HolidayMonthType.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Dtos\HistoryDto.cs" />
+    <Compile Include="Core\Dtos\HistoryDto.cs" />
+    <Compile Include="Core\ViewModels\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="Core\ViewModels\ExternalLoginListViewModel.cs" />
+    <Compile Include="Core\ViewModels\ForgotPasswordViewModel.cs" />
+    <Compile Include="Core\ViewModels\ForgotViewModel.cs" />
+    <Compile Include="Core\ViewModels\LoginViewModel.cs" />
+    <Compile Include="Core\ViewModels\RegisterViewModel.cs" />
+    <Compile Include="Core\ViewModels\ResetPasswordViewModel.cs" />
+    <Compile Include="Core\ViewModels\SendCodeViewModel.cs" />
+    <Compile Include="Core\ViewModels\VerifyCodeViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201701130149354_InitialModel.cs" />
-    <Compile Include="Migrations\201701130149354_InitialModel.Designer.cs">
+    <Compile Include="Persistence\EntityConfigurations\HistoryConfiguration.cs" />
+    <Compile Include="Persistence\Migrations\201701130149354_InitialModel.cs" />
+    <Compile Include="Persistence\Migrations\201701130149354_InitialModel.Designer.cs">
       <DependentUpon>201701130149354_InitialModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201701241756202_SeedUsers.cs" />
-    <Compile Include="Migrations\201701241756202_SeedUsers.Designer.cs">
+    <Compile Include="Persistence\Migrations\201701241756202_SeedUsers.cs" />
+    <Compile Include="Persistence\Migrations\201701241756202_SeedUsers.Designer.cs">
       <DependentUpon>201701241756202_SeedUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702010319217_DeleteHolidayTable.cs" />
-    <Compile Include="Migrations\201702010319217_DeleteHolidayTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\201702010319217_DeleteHolidayTable.cs" />
+    <Compile Include="Persistence\Migrations\201702010319217_DeleteHolidayTable.Designer.cs">
       <DependentUpon>201702010319217_DeleteHolidayTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703061430005_AddNameToApplicationUser.cs" />
-    <Compile Include="Migrations\201703061430005_AddNameToApplicationUser.Designer.cs">
+    <Compile Include="Persistence\Migrations\201703061430005_AddNameToApplicationUser.cs" />
+    <Compile Include="Persistence\Migrations\201703061430005_AddNameToApplicationUser.Designer.cs">
       <DependentUpon>201703061430005_AddNameToApplicationUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ApplicationDbContext.cs" />
-    <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\History.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\RecordManageRole.cs" />
-    <Compile Include="Models\WeatherDbContext.cs" />
+    <Compile Include="Persistence\Migrations\201704040249517_update.cs" />
+    <Compile Include="Persistence\Migrations\201704040249517_update.Designer.cs">
+      <DependentUpon>201704040249517_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\Configuration.cs" />
+    <Compile Include="Persistence\ApplicationDbContext.cs" />
+    <Compile Include="Core\Models\ApplicationUser.cs" />
+    <Compile Include="Core\Models\History.cs" />
+    <Compile Include="Core\ViewModels\ManageViewModels.cs" />
+    <Compile Include="Core\Models\RecordManageRole.cs" />
+    <Compile Include="Persistence\WeatherDbContext.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\RecordRepository.cs" />
+    <Compile Include="Core\Repositories\IRecordRepository.cs" />
+    <Compile Include="Persistence\Repositories\RecordRepository.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\RecordsViewModel.cs" />
-    <Compile Include="ViewModels\NewRecordViewModel.cs" />
+    <Compile Include="Core\ViewModels\RecordsViewModel.cs" />
+    <Compile Include="Core\ViewModels\NewRecordViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-cerulean.css" />
@@ -447,7 +488,7 @@
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <None Include="Content\Site.less" />
     <Content Include="Scripts\app\controllers\recordsController.js" />
@@ -589,24 +630,27 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201701130149354_InitialModel.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201701130149354_InitialModel.resx">
       <DependentUpon>201701130149354_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701241756202_SeedUsers.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201701241756202_SeedUsers.resx">
       <DependentUpon>201701241756202_SeedUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702010319217_DeleteHolidayTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201702010319217_DeleteHolidayTable.resx">
       <DependentUpon>201702010319217_DeleteHolidayTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703061430005_AddNameToApplicationUser.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201703061430005_AddNameToApplicationUser.resx">
       <DependentUpon>201703061430005_AddNameToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201704040249517_update.resx">
+      <DependentUpon>201704040249517_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

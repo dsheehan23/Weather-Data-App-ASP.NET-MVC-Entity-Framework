@@ -1,5 +1,6 @@
-﻿using HistoryData.Models;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using HistoryData.Core.Models;
+using HistoryData.Persistence;
 
 namespace HistoryData.Controllers
 {

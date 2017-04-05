@@ -1,10 +1,11 @@
-﻿using HistoryData.Models;
+﻿using HistoryData.Core.Models;
+using HistoryData.Core.Repositories;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HistoryData.Repositories
+namespace HistoryData.Persistence.Repositories
 {
-    public class RecordRepository
+    public class RecordRepository : IRecordRepository
     {
         private readonly WeatherDbContext _context;
 

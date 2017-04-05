@@ -1,15 +1,18 @@
+using HistoryData.Persistence;
+
 namespace HistoryData.Migrations
 {
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<HistoryData.Models.WeatherDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<WeatherDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
+            MigrationsDirectory = @"Persistence\Migrations";
         }
 
-        protected override void Seed(HistoryData.Models.WeatherDbContext context)
+        protected override void Seed(WeatherDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -1,7 +1,7 @@
-﻿using HistoryData.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using HistoryData.Core.Models;
 
-namespace HistoryData.ViewModels
+namespace HistoryData.Core.ViewModels
 {
     public class RecordsViewModel
     {

@@ -1,30 +1,29 @@
-﻿using HistoryData.Models;
+﻿using HistoryData.Core;
+using HistoryData.Core.Models;
+using HistoryData.Core.ViewModels;
 using HistoryData.Persistence;
-using HistoryData.ViewModels;
 using System.Web.Mvc;
 
 namespace HistoryData.Controllers
 {
     public class HistoryController : Controller
     {
-        private readonly WeatherDbContext _context;
-        private readonly UnitOfWork _unitOfWork;
-        private readonly int cEve = 24;
-        private readonly int cDay = 25;
-        private readonly int nEve = 31;
-        private readonly int nDay = 1;
-        private readonly int dec = 12;
-        private readonly int jan = 24;
+        private readonly IUnitOfWork _unitOfWork;
+        private const int CEve = 24;
+        private const int CDay = 25;
+        private const int NEve = 31;
+        private const int NDay = 1;
+        private const int Dec = 12;
+        private const int Jan = 1;
 
-        public HistoryController()
+        public HistoryController(IUnitOfWork unitOfWork)
         {
-            _context = new WeatherDbContext();
-            _unitOfWork = new UnitOfWork(_context);
+            _unitOfWork = unitOfWork;
         }
 
         protected override void Dispose(bool disposing)
         {
-            _context.Dispose();
+            new WeatherDbContext().Dispose();
         }
 
         public ActionResult Records()
@@ -37,28 +36,28 @@ namespace HistoryData.Controllers
 
         public ActionResult ChristmasEve()
         {
-            var viewModel = new RecordsViewModel(_unitOfWork.Records.GetHolidayData(cEve, dec), "Christmas Eve Data");
+            var viewModel = new RecordsViewModel(_unitOfWork.Records.GetHolidayData(CEve, Dec), "Christmas Eve Data");
 
             return View("HolidayData", viewModel);
         }
 
         public ActionResult ChristmasDay()
         {
-            var viewModel = new RecordsViewModel(_unitOfWork.Records.GetHolidayData(cDay, dec), "Christmas Day Data");
+            var viewModel = new RecordsViewModel(_unitOfWork.Records.GetHolidayData(CDay, Dec), "Christmas Day Data");
 
             return View("HolidayData", viewModel);
         }
 
         public ActionResult NewYearsEve()
         {
-            var viewModel = new RecordsViewModel(_unitOfWork.Records.GetHolidayData(nEve, dec), "New Years Eve Data");
+            var viewModel = new RecordsViewModel(_unitOfWork.Records.GetHolidayData(NEve, Dec), "New Years Eve Data");
 
             return View("HolidayData", viewModel);
         }
 
         public ActionResult NewYearsDay()
         {
-            var viewModel = new RecordsViewModel(_unitOfWork.Records.GetHolidayData(nDay, jan), "New Years Day Data");
+            var viewModel = new RecordsViewModel(_unitOfWork.Records.GetHolidayData(NDay, Jan), "New Years Day Data");
 
             return View("HolidayData", viewModel);
         }
@@ -91,7 +90,7 @@ namespace HistoryData.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("New", viewModel);
+                return View("RecordForm", viewModel);
             }
 
             var record = _unitOfWork.Records.GetSingleRecord(viewModel.Id);
@@ -112,7 +111,7 @@ namespace HistoryData.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("New", viewModel);
+                return View("RecordForm", viewModel);
             }
 
             if (viewModel.Id == 0)

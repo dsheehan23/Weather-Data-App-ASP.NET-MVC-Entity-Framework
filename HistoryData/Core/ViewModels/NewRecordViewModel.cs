@@ -1,12 +1,12 @@
 ﻿using HistoryData.Controllers;
-using HistoryData.Models;
+using HistoryData.Core.Models;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq.Expressions;
 using System.Web.Mvc;
 
-namespace HistoryData.ViewModels
+namespace HistoryData.Core.ViewModels
 {
     public class NewRecordViewModel
     {

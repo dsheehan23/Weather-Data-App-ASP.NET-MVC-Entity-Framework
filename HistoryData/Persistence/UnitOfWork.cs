@@ -1,12 +1,14 @@
-﻿using HistoryData.Models;
-using HistoryData.Repositories;
+﻿using HistoryData.Core;
+using HistoryData.Core.Models;
+using HistoryData.Core.Repositories;
+using HistoryData.Persistence.Repositories;
 
 namespace HistoryData.Persistence
 {
-    public class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly WeatherDbContext _context;
-        public RecordRepository Records { get; private set; }
+        public IRecordRepository Records { get; private set; }
 
         public UnitOfWork(WeatherDbContext context)
         {

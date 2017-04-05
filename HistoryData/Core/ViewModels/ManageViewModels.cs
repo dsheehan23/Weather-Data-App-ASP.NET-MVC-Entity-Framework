@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace HistoryData.Models
+namespace HistoryData.Core.ViewModels
 {
     public class IndexViewModel
     {

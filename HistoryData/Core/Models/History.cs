@@ -1,39 +1,24 @@
-namespace HistoryData.Models
-{
-    using System;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using ViewModels;
+using HistoryData.Core.ViewModels;
+using System;
 
-    [Table("History")]
+namespace HistoryData.Core.Models
+{
     public partial class History
     {
-        [Key]
         public int Id { get; set; }
         
-        [Index(IsUnique = true)]
-        [Display(Name = "Day")]
-        [Required]
-        [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode=true, DataFormatString="{0:MM/dd/yyyy}")]
         public DateTime DAY { get; set; }
 
-        [Display(Name = "Daily Precipitation")]
         public float PRECIP { get; set; }
 
-        [Display(Name = "Daily Snow")]
         public float SNOW { get; set; }
 
-        [Display(Name = "Snowdepth")]
         public int SNOWDEPTH { get; set; }
 
-        [Display(Name = "Max Temperature")]
         public int TMAX { get; set; }
 
-        [Display(Name = "Min Temperature")]
         public int TMIN { get; set; }
 
-        [Display(Name = "Mean Temperature")]
         public float TMEAN { get; set; }
 
         public History()

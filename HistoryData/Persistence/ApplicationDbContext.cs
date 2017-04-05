@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using HistoryData.Core.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace HistoryData.Models
+namespace HistoryData.Persistence
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
