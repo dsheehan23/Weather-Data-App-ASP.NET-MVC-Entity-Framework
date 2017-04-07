@@ -305,6 +305,13 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <None Include="Content\DanWeather.less" />
+    <None Include="Content\BootstrapOverrides.less" />
+    <Content Include="Content\BootstrapOverrides.css">
+      <DependentUpon>BootstrapOverrides.less</DependentUpon>
+    </Content>
+    <Content Include="Content\BootstrapOverrides.min.css">
+      <DependentUpon>BootstrapOverrides.css</DependentUpon>
+    </Content>
     <Content Include="Content\DanWeather.css">
       <DependentUpon>DanWeather.less</DependentUpon>
     </Content>

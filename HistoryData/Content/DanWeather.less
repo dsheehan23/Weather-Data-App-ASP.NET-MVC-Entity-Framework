@@ -1,18 +1,31 @@
-﻿
+﻿// Variables
+
+@highlight: Highlight;
+
+// Mixins
+
+.radius(@radius) {
+    -webkit-border-radius: @radius; //Chrome, Safari4+
+    -moz-border-radius: @radius; //FF3.6+
+    -o-border-radius: @radius; //Opera 11.10+
+    -ms-border-radius: @radius; //IE10+
+    border-radius: @radius;
+}
+
+
 #noalert{
     text-align: center;
-    background-color: Highlight;
+    background-color: @highlight;
     font-weight: bold;
 }
 
 #alert{
     text-align: center;
-    background-color: Highlight;
+    background-color: @highlight;
     color: red;
     font-size: large;
     font-weight: bold;
-    -ms-border-radius: 5px;
-    border-radius: 5px;
+    .radius(5px);
 }
 
 
@@ -40,8 +53,7 @@
     }
 
     > img {
-        -ms-border-radius: 8px;
-        border-radius: 8px;
+        .radius(8px);
     }
 }
 
@@ -109,8 +121,7 @@ ul.SevenDay{
             color: white;
             text-align: center;
             width: 60px;
-            -ms-border-radius: 8px;
-            border-radius: 8px;
+            .radius(8px);
 
             .month {
 	            text-transform: uppercase;

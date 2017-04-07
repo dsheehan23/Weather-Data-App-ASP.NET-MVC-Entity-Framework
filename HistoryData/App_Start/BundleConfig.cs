@@ -37,7 +37,8 @@ namespace HistoryData
                       "~/Content/Site.css",
                       "~/Content/DanWeather.css",
                       "~/Content/themes/base/all.css",
-                      "~/Content/themes/base/tabs.css"));
+                      "~/Content/themes/base/tabs.css",
+                      "~/Content/BootstrapOverrides.css"));
         }
     }
 }
