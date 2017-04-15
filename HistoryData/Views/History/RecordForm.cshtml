@@ -13,7 +13,7 @@
     @Html.AntiForgeryToken()
     <div class="form-group">
         @Html.LabelFor(m => m.DAY)
-        @Html.TextBoxFor(m => m.DAY, new { @class = "form-control", id = "date" })
+        @Html.TextBoxFor(m => m.DAY, "{0:MM/dd/yyyy}", new { @class = "form-control", id = "date", autofocus = "autofocus"})
         @Html.ValidationMessageFor(m => m.DAY)
     </div>
     <div class="form-group">
@@ -55,14 +55,7 @@
 
     <script>
         $(document).ready(function () {
-                $("#date").datepicker({
-                    changeMonth: true,
-                    changeYear: true,
-                    dateFormat: "mm/dd/yy",
-                    numberOfMonths: 1,
-                    maxDate: 365,
-                    minDate: -3650
-                });
+            RecordsController.datePicker("#date");
         });
         
     </script>

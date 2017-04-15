@@ -6,6 +6,10 @@
 
 <h2>Records</h2>
 
+<p class="alert alert-info">
+    Climate data is from the Midwest Regional Climate Center
+</p>
+
 <button class="btn btn-primary" onclick="location.href='@Url.Action("Create", "History")'">New Record</button>
 <br /><br />
 
@@ -14,8 +18,8 @@
     <thead>
         <tr>
             <th>Day</th>
-            <th>Max Temperature</th>
-            <th>Min Temperature</th>
+            <th>High Temperature</th>
+            <th>Low Temperature</th>
             <th>Mean Temperature</th>
             <th>Precipitation</th>
             <th>Daily Snowfall</th>
@@ -36,7 +40,7 @@
             RecordsController.init("#records");
 
             $("#records").on("click", ".js-edit", function () {
-                button = $(this);
+                var button = $(this);
                 window.location.href = '@Url.Action("Edit", "History")?id=' + button.attr("data-history-id");
             });
       });

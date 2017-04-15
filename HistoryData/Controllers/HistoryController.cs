@@ -2,6 +2,7 @@
 using HistoryData.Core.Models;
 using HistoryData.Core.ViewModels;
 using HistoryData.Persistence;
+using System;
 using System.Web.Mvc;
 
 namespace HistoryData.Controllers
@@ -50,14 +51,14 @@ namespace HistoryData.Controllers
 
         public ActionResult NewYearsEve()
         {
-            var viewModel = new RecordsViewModel(_unitOfWork.Records.GetHolidayData(NEve, Dec), "New Years Eve Data");
+            var viewModel = new RecordsViewModel(_unitOfWork.Records.GetHolidayData(NEve, Dec), "New Year's Eve Data");
 
             return View("HolidayData", viewModel);
         }
 
         public ActionResult NewYearsDay()
         {
-            var viewModel = new RecordsViewModel(_unitOfWork.Records.GetHolidayData(NDay, Jan), "New Years Day Data");
+            var viewModel = new RecordsViewModel(_unitOfWork.Records.GetHolidayData(NDay, Jan), "New Year's Day Data");
 
             return View("HolidayData", viewModel);
         }
@@ -117,11 +118,18 @@ namespace HistoryData.Controllers
             if (viewModel.Id == 0)
             {
                 var history = new History(viewModel);
-
-                _unitOfWork.Records.Add(history);
+                _unitOfWork.Records.Add(history);  
             }
 
-            _unitOfWork.Complete();
+            try
+            {
+                _unitOfWork.Complete();
+            }
+            catch(Exception)
+            {
+                return View("RecordForm", viewModel);
+            }
+            
             return RedirectToAction("Index", "Home");
         }
     }

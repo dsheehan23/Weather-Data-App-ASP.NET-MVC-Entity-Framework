@@ -1,4 +1,6 @@
 ﻿using HistoryData.Core.Models;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 
 namespace HistoryData.Persistence.EntityConfigurations
@@ -12,11 +14,16 @@ namespace HistoryData.Persistence.EntityConfigurations
             HasKey(e => e.Id);
             Property(e => e.Id)
                 .IsRequired();
-
+                
             Property(e => e.DAY)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnAnnotation(
+                    "Index",
+                    new IndexAnnotation
+                    (
+                        new IndexAttribute("Unique Day") { IsUnique = true })
+                    );
 
-            
             Property(e => e.PRECIP);
 
             

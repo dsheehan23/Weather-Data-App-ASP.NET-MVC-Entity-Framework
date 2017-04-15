@@ -33,7 +33,8 @@ namespace HistoryData.Persistence.Repositories
 
         public void Add(History history)
         {
-            _context.Histories.Add(history);
+                _context.Histories.Add(history);
+            
         }
 
         public void Remove(History history)

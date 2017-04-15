@@ -15,7 +15,6 @@ namespace HistoryData.Core.ViewModels
         [Index(IsUnique = true)]
         [Display(Name = "Day")]
         [Required]
-        [DisplayFormat(DataFormatString = "{mm-dd-yyyy}")]
         public DateTime DAY { get; set; }
 
         [Display(Name = "Daily Precipitation")]
